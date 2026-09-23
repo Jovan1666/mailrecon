@@ -48,7 +48,7 @@ SENT = []            # 桩记录：("text"|"card"|"patch", ...) —— 只记录
 
 def check(name, ok, detail=""):
     (PASS if ok else FAIL).append(name)
-    print("  [%s] %s%s" % ("PASS" if ok else "FAIL", name, ("　→ " + detail) if detail else ""))
+    print("  [%s] %s%s" % ("PASS" if ok else "FAIL", name, ("\u3000→ " + detail) if detail else ""))
 
 
 def md5(path):
