@@ -1,0 +1,7 @@
+name: task-cmd-bridge
+version: "1.0.0"
+description: 把飞书里发来的求职台账指令（完成 3 / 放弃 3 / 状态）实时抄给 root，并让 AI 不要重复回答
+author: root
+kind: standalone
+provides_hooks:
+  - pre_gateway_dispatch
