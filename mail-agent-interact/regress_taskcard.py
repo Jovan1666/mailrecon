@@ -48,7 +48,7 @@ SENT = []            # 桩记录：("text"|"card"|"patch", ...) —— 只记录
 
 def check(name, ok, detail=""):
     (PASS if ok else FAIL).append(name)
-    print("  [%s] %s%s" % ("PASS" if ok else "FAIL", name, ("\u3000→ " + detail) if detail else ""))
+    print("  [%s] %s%s" % ("PASS" if ok else "FAIL", name, ("　→ " + detail) if detail else ""))
 
 
 def md5(path):
@@ -145,7 +145,7 @@ def dump_card(card, title):
             for i, line in enumerate(el["text"]["content"].split("\n")):
                 print(("    " if i else "  ") + line)
         elif el.get("tag") == "note":
-            print("  ▸ " + " \uFF5C ".join(x.get("content", "") for x in el.get("elements", [])))
+            print("  ▸ " + " ｜ ".join(x.get("content", "") for x in el.get("elements", [])))
         elif el.get("tag") == "action":
             for b in el["actions"]:
                 print("  ▸ [按钮 %s]  value=%s%s"
