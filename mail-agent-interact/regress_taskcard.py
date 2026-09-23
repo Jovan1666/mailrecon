@@ -145,7 +145,7 @@ def dump_card(card, title):
             for i, line in enumerate(el["text"]["content"].split("\n")):
                 print(("    " if i else "  ") + line)
         elif el.get("tag") == "note":
-            print("  ▸ " + " ｜ ".join(x.get("content", "") for x in el.get("elements", [])))
+            print("  ▸ " + " \uFF5C ".join(x.get("content", "") for x in el.get("elements", [])))
         elif el.get("tag") == "action":
             for b in el["actions"]:
                 print("  ▸ [按钮 %s]  value=%s%s"
