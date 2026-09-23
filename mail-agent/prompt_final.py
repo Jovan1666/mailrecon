@@ -433,7 +433,7 @@ def parse_email_json(content):
         if dl.lower() in ("null", "none", "", "n/a", "-"):
             dl = None
         elif not re.match(r"^\d{4}-\d{2}-\d{2}( \d{2}:\d{2})?$", dl):
-            m = re.match(r"^(\d{4})[-/ .](\d{1,2})[-/ .](\d{1,2})[ T]?(\d{1,2})?:?(\d{2})?", dl)
+            m = re.match(r"^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})[ T]?(\d{1,2})?:?(\d{2})?", dl)
             if m:
                 y, mo, d, hh, mm = m.groups()
                 dl = "%s-%02d-%02d" % (y, int(mo), int(d))
