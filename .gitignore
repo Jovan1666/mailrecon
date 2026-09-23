@@ -1,0 +1,31 @@
+# ---- 凭据 / 身份：绝不入库 ----
+.env
+*.env
+!.env.example
+identity.json
+!identity.example.json
+
+# ---- 平台域名清单：等于"我用过哪些服务"的画像，绝不入库 ----
+platform_domains.txt
+!platform_domains.txt.example
+
+# ---- 运行期数据 ----
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.jsonl
+*.pid
+*.lock
+*.out
+*.bak
+*.tmp
+对账报告.txt
+backups/
+runs/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+venv/

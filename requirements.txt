@@ -1,0 +1,8 @@
+# 第三方依赖。业务逻辑本身只用标准库，唯一的硬依赖是 IMAP 客户端。
+imapclient>=4.1.0
+
+# 说明：
+#  * mail-agent-interact/plugcheck.py 与 hermes/task-cmd-bridge/__init__.py
+#    会 import hermes_cli.* —— 那是 Hermes agent 运行时自带的包，不是 PyPI 依赖，
+#    只在装了 Hermes 的机器上可用；其余脚本不依赖它。
+#  * 模型调用走标准库 urllib，不需要任何厂商的 SDK。

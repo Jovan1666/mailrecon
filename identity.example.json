@@ -1,0 +1,58 @@
+{
+  "_comment": "示例身份文件 —— 结构照抄生产用的 identity.json，但**所有值都是假的**。使用时 cp identity.example.json identity.json 再换成你自己的值。identity.json 已被 .gitignore 挡住，不会进仓库。",
+  "_comment_fields": {
+    "name": "本人姓名，会被换成 [本人姓名]",
+    "name_aliases": "拼音/英文名/账号名等别名，全按整词打码",
+    "emails": "本人邮箱，命中就换成 [本人邮箱]",
+    "qq": "本人 QQ 号（会被单独打码）",
+    "phones": "本人手机号",
+    "schools": "就读/毕业学校（含学院名）",
+    "majors": "专业名",
+    "stu_ids": "学号",
+    "wechats": "微信号",
+    "addresses": "地址关键词，无条件打码",
+    "addresses_soft": "弱地址关键词（城市名等），只在地址上下文附近才打码，避免误伤公司名",
+    "generic_school": "是否启用通用「XX大学/XX学院」规则（有误伤风险，可关）",
+    "generic_address": "是否启用通用「地址：xxx」规则",
+    "strict_orders": "true 时连订单号/发票号也打掉（代价：截止时间推理会一起废掉）"
+  },
+  "name": "张三",
+  "name_aliases": [
+    "San",
+    "SanZhang",
+    "SanZhang2027"
+  ],
+  "emails": [
+    "you@example.com",
+    "you-alias@example.com"
+  ],
+  "qq": [
+    "100000000"
+  ],
+  "phones": [
+    "13800138000"
+  ],
+  "schools": [
+    "某某大学",
+    "某某大学某某学院",
+    "某某学院"
+  ],
+  "majors": [
+    "某某专业"
+  ],
+  "stu_ids": [
+    "2027000001"
+  ],
+  "wechats": [
+    "your-wechat-id"
+  ],
+  "addresses": [
+    "某某街道"
+  ],
+  "generic_school": true,
+  "generic_address": true,
+  "strict_orders": false,
+  "addresses_soft": [
+    "某某市"
+  ]
+}
