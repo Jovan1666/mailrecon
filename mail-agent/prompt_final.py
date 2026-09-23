@@ -375,7 +375,7 @@ def parse_email_json(content):
             pass
         # 修尾随逗号：{"a":1,} / [1,2,]
         try:
-            return json.loads(re.sub(r",\s*([}\])", r"\1", text))
+            return json.loads(re.sub(r",\s*([}\]])", r"\1", text))
         except Exception:                        # noqa: BLE001
             return None
 
