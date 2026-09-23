@@ -1,0 +1,70 @@
+# 平台域名 / 品牌清单 —— 示例文件
+#
+# 用法：
+#   cp mail-agent/platform_domains.txt.example mail-agent/platform_domains.txt
+#   然后把下面每一节换成**你自己邮箱里实际出现过的**平台。
+#
+# 为什么要单独放一个文件：这份清单等于一张"我用过哪些服务"的画像
+# （电商、显卡、网盘、代理、盗版站、招聘系统……）。`platform_domains.txt`
+# 已经被 .gitignore 挡住，不会进仓库；源码内置的默认清单只有下面这些
+# *.example.com 的虚构域名，够跑自测和演示。
+#
+# 格式：每行一个值；`#` 起注释；`[节名]` 切换分类；没有节名的行归 [noise]。
+# 域名一律小写、不带 scheme 和路径（`mail.ats.example.com` 而不是
+# `https://mail.ats.example.com/inbox`）。
+#
+# 也可以不复制文件，改用环境变量 PLATFORM_DOMAINS_FILE 指向别处的清单。
+
+[job]
+# 招聘系统 / ATS / 求职平台。命中即视为"求职语境"，这类邮件永不会被静默丢掉。
+# 填你收到过投递确认、测评邀请、笔试通知的那些域名（含代发平台）。
+jobboard.example.com
+usermail.jobboard.example.com
+hr.jobboard.example.com
+ats-one.example.com
+hr.ats-one.example.com
+ats-two.example.com
+mail.ats-two.example.com
+ats-three.example.com
+shmail.ats-three.example.com
+jobportal.example.com
+
+[noise]
+# 消费级 / 工具类平台。这些发来的批量通知、营销、收据、登录验证码，
+# 在**非求职语境**下可以直接 drop（省掉模型调用）。
+# 填你邮箱里那些"一眼就是群发"的平台域名。
+gameplatform.example.com
+devicevendor.example.com
+devicevendor-cn.example.com
+softwarevendor.example.com
+searchvendor.example.com
+peripheral.example.com
+gpuvendor.example.com
+gamepublisher.example.com
+# 通用代码托管通知的发件域（任何人的邮箱里都有，不算个人信息）
+github.com
+
+[spam]
+# 确证的垃圾 / 钓鱼域名。命中的主题一律 drop，不必再看正文。
+example-spam.invalid
+
+[spam_brand]
+# common.py 的 SPAM_PAT 里额外要命中的品牌词（正则里的字面量会被转义）。
+# 例如你在收据/营销邮件里常见到的服务名。
+example-brand-one
+example-brand-two
+
+[action_hint]
+# links.py 的 ACTION_HINT 里额外要命中的平台词：出现在 URL 里就说明
+# "这个链接是要我去操作的"，会被优先推荐给用户点。
+# 例如你常用的招聘系统的域名首段。
+ats-one
+ats-two
+jobboard
+
+[contest]
+# triage.py 的 RE_COMPETITION 里额外要命中的赛事关键词。
+# 通用词（大赛/竞赛/初赛/复赛/决赛/奖项/证书…）已经在源码里了；
+# 这里填**具体赛事名**——它同样属于"我参加过什么"的画像，
+# 所以不写在源码里。填你邮箱里实际收到过通知的赛事名。
+示例杯
